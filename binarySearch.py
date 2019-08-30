@@ -16,7 +16,7 @@ a=[];
 n=int(input("enter the number of elements"))
 print("enter the sorted array")
 for i in range(0,n):
-    x=int(input())
+    x=int(input(" "))
     a.append(x)
 
 key=int(input("enter the key element to be searched"))
