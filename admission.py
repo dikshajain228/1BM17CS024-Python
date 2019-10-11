@@ -1,62 +1,36 @@
-class admission:
-    def __init__(self,age,marks,stuId):
-        self.age=age
-        self.marks=marks
-        self.stuId=stuId
-
-    def validate_marks(self,marks):
-        if(self.marks<=100 and self.marks>0):
-            return True
-        return False
-
-    def validate_age(self,age):
-        if(self.age>20):
-            return True
-        return False
-
-    def check_qualification(self,age,marks):
-        if(self.validate_marks(marks)):
-            if(self.validate_age(age)):
-                if(self.marks>65):
-                    return True
-                else:
-                    return False
-            else:
-                return False
-        return False    
-
-    def set_marks(self,marks):
-        self.marks=marks
-    def set_age(self,age):
-        self.age=age
-    def set_id(self,stuId):
-        self.stuId=stuId
-
-    def get_marks(self):
-        return self.marks
-    def get_id(self):
-        return self.stuId
-    def get_age(self):
-        return self.age
-
-student=[]
-n=int(input("enter the number of students"))
-for i in range(n):
-    print("enter the id for student "+str(i))
-    ID=input()
-    print("enter the marks for student "+str(i))
-    marks=int(input())
-    print("enter the age for student "+str(i))
-    age=int(input())
-    x=admission(ID,marks,age)
-    student.append(x)
-    
-    r=x.check_qualification(age,marks)
-    if(r):
-        print("student Id ",end=" ")
-        print("is admitted ")
-    else:
-        print("The student is not qualified to be admitted ")
+class Student:
+	def __init__(self,student_id, age, marks):
+		self.__student_id = None
+		self.__age = None
+		self.___marks = None
+	def setter(self, student_id, age, marks):
+		self.__student_id = student_id
+		self.__age = age
+		self.__marks = marks
+	def validate_marks(self):
+		if(self.__marks<100 and self.__marks>0):
+			return True
+		return False
+	def validate_age(self):
+		if(self.__age>20):
+			return True
+		return False
+	def check_qualification(self):
+		if(self.validate_marks() and self.validate_age()):
+			if(self.__marks>=65):
+				return True
+		return False
+	def getter(self):
+		print("Student ID: ",self.__student_id);
+		print("Age: ",self.__age)
+		print("Marks: ",self.__marks)
+Diksha = Student(1, 19, 70)
+Diksha.setter(1, 50, 70)
+if(Diksha.check_qualification()):
+	print("Student is admissible")
+	Diksha.getter()
+else:
+	print("Student is not admissible")
 
 
     
